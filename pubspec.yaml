@@ -1,0 +1,49 @@
+name: work_management_app
+description: 근무 관리 앱
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=2.19.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # UI 관련
+  cupertino_icons: ^1.0.5
+
+  # 상태 관리
+  provider: ^6.0.5
+
+  # 캘린더
+  table_calendar: ^3.0.9
+
+  # 로컬 데이터베이스
+  sqflite: ^2.3.0
+  path: ^1.8.3
+
+  # 기타 유틸리티
+  intl: ^0.18.1
+
+  # API 연동 (선택사항)
+  http: ^1.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^2.0.3
+
+flutter:
+  uses-material-design: true
+
+  # 폰트 설정 (옵션)
+  # fonts:
+  #   - family: NotoSansKR
+  #     fonts:
+  #       - asset: fonts/NotoSansKR-Regular.otf
+  #       - asset: fonts/NotoSansKR-Bold.otf
+  #         weight: 700
