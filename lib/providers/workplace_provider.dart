@@ -1,25 +1,31 @@
-//근무지 Provider
 import 'package:flutter/foundation.dart';
 import '../models/workplace.dart';
 import '../services/database_service.dart';
+import 'auth_provider.dart';
 
 class WorkplaceProvider extends ChangeNotifier {
   List<Workplace> _workplaces = [];
   final DatabaseService _db = DatabaseService.instance;
+  AuthProvider? _authProvider;
 
   List<Workplace> get workplaces => _workplaces;
 
-  WorkplaceProvider() {
+  void setAuthProvider(AuthProvider authProvider) {
+    _authProvider = authProvider;
     loadWorkplaces();
   }
 
   Future<void> loadWorkplaces() async {
-    _workplaces = await _db.getWorkplaces();
+    if (_authProvider?.currentUser == null) return;
+
+    _workplaces = await _db.getWorkplaces(_authProvider!.currentUser!.id!);
     notifyListeners();
   }
 
   Future<void> addWorkplace(Workplace workplace) async {
-    final id = await _db.insertWorkplace(workplace);
+    if (_authProvider?.currentUser == null) return;
+
+    final id = await _db.insertWorkplace(workplace, _authProvider!.currentUser!.id!);
     final newWorkplace = Workplace(
       id: id,
       name: workplace.name,

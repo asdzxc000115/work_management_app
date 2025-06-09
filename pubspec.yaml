@@ -11,6 +11,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
 
   # UI 관련
   cupertino_icons: ^1.0.5
@@ -25,8 +27,11 @@ dependencies:
   sqflite: ^2.3.0
   path: ^1.8.3
 
+  # 로컬 저장소
+  shared_preferences: ^2.2.0
+
   # 기타 유틸리티
-  intl: ^0.18.1
+  intl: ^0.19.0
 
   # API 연동 (선택사항)
   http: ^1.1.0
@@ -35,7 +40,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-  flutter_lints: ^2.0.3
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
